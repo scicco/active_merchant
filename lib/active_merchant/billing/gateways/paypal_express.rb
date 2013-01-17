@@ -1,12 +1,14 @@
 require File.dirname(__FILE__) + '/paypal/paypal_common_api'
 require File.dirname(__FILE__) + '/paypal/paypal_express_response'
 require File.dirname(__FILE__) + '/paypal_express_common'
+require File.dirname(__FILE__) + '/paypal/paypal_recurring_api'
 
 module ActiveMerchant #:nodoc:
   module Billing #:nodoc:
     class PaypalExpressGateway < Gateway
       include PaypalCommonAPI
       include PaypalExpressCommon
+      include PaypalRecurringApi
 
       NON_STANDARD_LOCALE_CODES = {
         'DK' => 'da_DK',
